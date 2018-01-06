@@ -3,6 +3,7 @@ import sys
 import pygame
 
 from settings import Settings
+from ship import Ship
 
 
 def run_game():
@@ -11,6 +12,7 @@ def run_game():
 
     settings = Settings()
     screen = pygame.display.set_mode(settings.screen_size)
+    ship = Ship(screen)
 
     while True:
         # Watch for keyboard and mouse events
@@ -19,6 +21,7 @@ def run_game():
                 sys.exit()
 
         screen.fill(settings.bg_color)
+        ship.blitme()
 
         # Make the most recently draw screen visible
         pygame.display.flip()
