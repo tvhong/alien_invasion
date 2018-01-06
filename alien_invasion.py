@@ -2,13 +2,15 @@ import sys
 
 import pygame
 
+from settings import Settings
+
 
 def run_game():
     pygame.init()
-    screen = pygame.display.set_mode((1200, 800))
     pygame.display.set_caption('Alien Invasion')
 
-    bg_color = (230, 230, 230)
+    settings = Settings()
+    screen = pygame.display.set_mode(settings.screen_size)
 
     while True:
         # Watch for keyboard and mouse events
@@ -16,7 +18,7 @@ def run_game():
             if event.type == pygame.QUIT:
                 sys.exit()
 
-        screen.fill(bg_color)
+        screen.fill(settings.bg_color)
 
         # Make the most recently draw screen visible
         pygame.display.flip()
